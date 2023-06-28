@@ -2,7 +2,9 @@ package com.example.UserManagementSystem.Controller;
 
 import com.example.UserManagementSystem.Model.UserManagement;
 import com.example.UserManagementSystem.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -20,7 +22,7 @@ public class UserController {
     }
 
     @PostMapping("addUser")
-    public String addUser(@RequestBody UserManagement userManagement){
+    public String addUser(@RequestBody @Valid UserManagement userManagement){
         return userService.addUser(userManagement);
     }
 
